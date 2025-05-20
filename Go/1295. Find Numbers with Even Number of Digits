@@ -1,0 +1,15 @@
+func findNumbers(nums []int) int {
+    even := 0
+    for i:= range nums{
+        count :=0 
+        n := nums[i]
+        for n>0{
+            n /= 10
+            count++
+        }
+        if(count %2 == 0){
+            even++
+        }
+    }
+    return even
+}
