@@ -1,0 +1,15 @@
+import "strings"
+func isPrefixString(s string, words []string) bool {
+    
+    for i:=0; i<len(words); i++{
+        if len(s)<=0{
+            return true
+        }
+        if strings.HasPrefix(s, words[i]){
+            s = s[len(words[i]):]
+        }else{
+            return false
+        }
+    }
+    return len(s)==0
+}
