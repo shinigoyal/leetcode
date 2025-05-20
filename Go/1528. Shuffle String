@@ -1,0 +1,9 @@
+import "strings"
+func restoreString(s string, indices []int) string {
+    size := len(indices)
+    newString := make([]string, size)
+    for i:=0; i<size; i++{
+        newString[indices[i]] = string(s[i])
+    }
+    return strings.Join(newString,"")
+}
