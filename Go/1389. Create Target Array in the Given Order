@@ -1,20 +1,15 @@
 func createTargetArray(nums []int, index []int) []int {
-    length := len(nums)
-    arr := make([]int, length)
-    for i:= range arr{
-        arr[i] = -1
-    }
-    for i:=0; i<length; i++{
-        pos := index[i]
-        num := nums[i]
+	length := len(nums)
+	arr := make([]int, length)
 
-        if arr[pos] != -1{
-            s1 := arr[:pos]
-            s2 := arr[pos:]
-            arr = append(s1, append([]int{num}, s2...)...)
-        }else{
-            arr[pos] = num
-        } 
-    }
-    return arr[:length]
+	for i := 0; i < length; i++ {
+		pos := index[i]
+		num := nums[i]
+
+		s1 := arr[:pos]
+		s2 := arr[pos:]
+		arr = append(s1, append([]int{num}, s2...)...)
+	}
+
+	return arr[:length]
 }
