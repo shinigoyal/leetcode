@@ -1,0 +1,14 @@
+func findLucky(arr []int) int {
+        newArr := make([]int, 501);
+        for i:=0; i<len(arr); i++{
+           newArr[arr[i]]++;
+        }
+        
+        result := -1;
+        for i:=1; i<len(newArr); i++{
+            if newArr[i]==i{
+                result = i
+            }
+        }
+        return result
+}
