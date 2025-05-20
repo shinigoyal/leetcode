@@ -1,0 +1,12 @@
+func isPalindrome(x int) bool {
+    if x<0{
+        return false
+    }
+    reverse := 0
+    val := x
+    for val!=0{
+        reverse = reverse*10 + val%10
+        val = val/10
+    }
+    return reverse == x
+}
