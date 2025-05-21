@@ -1,0 +1,22 @@
+func getRow(rowIndex int) []int {
+    if rowIndex==0{
+        return []int{1}
+    }
+    arr := make([][]int, 0, rowIndex+1)
+    arr = append(arr, []int{1})
+    for i:=1; i<rowIndex+1; i++{
+        temp := make([]int, 0, i+1)
+        temp = append(temp, 1)
+
+        for j:=1; j<=i; j++{
+            if j==i{
+                temp = append(temp, 1)
+            }else{
+                sum := arr[i-1][j]+arr[i-1][j-1]
+                temp =append(temp, sum)
+            }
+        }
+        arr = append(arr, temp)
+    }
+    return arr[rowIndex]
+}
