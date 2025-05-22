@@ -1,0 +1,24 @@
+func islandPerimeter(grid [][]int) int {
+	perm := 0
+    gridLen := len(grid)
+	for i := 0; i < gridLen; i++ {
+        innerLen := len(grid[i])
+		for j := 0; j < innerLen; j++ {
+			if grid[i][j] == 1 {
+				if i == 0 || grid[i-1][j] == 0 {
+					perm++
+				}
+				if i == gridLen-1 || grid[i+1][j] == 0 {
+					perm++
+				}
+				if j == 0 || grid[i][j-1] == 0 {
+					perm++
+				}
+				if j == innerLen-1 || grid[i][j+1] == 0 {
+					perm++
+				}
+			}
+		}
+	}
+	return perm
+}
