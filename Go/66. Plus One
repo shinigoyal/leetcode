@@ -1,0 +1,13 @@
+func plusOne(digits []int) []int {
+    lastIndex := len(digits)-1
+    digits[lastIndex]++
+    for digits[lastIndex]==10{
+        digits[lastIndex] = 0
+        lastIndex--
+        if lastIndex<0{
+            return append([]int{1}, digits...)
+        }
+        digits[lastIndex]++
+    }
+    return digits
+}
