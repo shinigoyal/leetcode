@@ -1,0 +1,17 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int lastIndex = digits.length-1;
+        digits[lastIndex]++;
+        while(digits[lastIndex]==10){
+            digits[lastIndex] = 0;
+            lastIndex--;
+            if(lastIndex<0){
+                int[] arr = new int[digits.length+1];
+                arr[0]=1;
+                return arr;
+            }
+            digits[lastIndex]++;
+        }
+        return digits;
+    }
+}
