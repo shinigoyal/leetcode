@@ -1,0 +1,22 @@
+class Solution {
+    public String[] findRelativeRanks(int[] score) {
+        int[] copy = score.clone();
+        Arrays.sort(copy);
+        int len = score.length;
+        String[] str = new String[len];
+        for(int i=0; i<len;i++){
+            int index = Arrays.binarySearch(copy, score[i]);
+            if(index == len-1){
+                str[i] = "Gold Medal";
+            }else if(index == len-2){
+                str[i] = "Silver Medal";
+            }else if(index == len-3){
+                str[i] = "Bronze Medal";
+            }else{
+                str[i] = String.valueOf(len-index);
+            }
+            
+        }
+        return str;
+    }
+}
