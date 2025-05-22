@@ -1,0 +1,24 @@
+import ("slices";
+        "sort";
+        "strconv")
+
+func findRelativeRanks(score []int) []string {
+        len := len(score)
+        copyArr := make([]int, len)
+        copy(copyArr, score)
+        slices.Sort(copyArr)
+        str := make([]string,len)
+        for i:=0; i<len;i++{
+            index := sort.SearchInts(copyArr, score[i])
+            if index == len-1{
+                str[i] = "Gold Medal"
+            }else if index == len-2{
+                str[i] = "Silver Medal"
+            }else if index == len-3{
+                str[i] = "Bronze Medal"
+            }else{
+                str[i] = strconv.Itoa(len-index)
+            }
+        }
+        return str
+    }
