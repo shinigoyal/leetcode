@@ -1,0 +1,30 @@
+import "strings"
+func findWords(words []string) []string {
+    s1 := "qwertyuiopQWERTYUIOP"
+    s2 := "asdfghjklASDFGHJKL"
+    //s3 := "zxcvbnmZXCVBNM"
+    arr := make([]string, 0)
+    for _, v := range words{
+        inFirst := 0
+        inSecond := 0
+        inThird := 0
+        strLen := len(v)
+        for _, letter := range v{
+            if strings.ContainsRune(s1, letter){
+                inFirst++
+            }else if strings.ContainsRune(s2, letter){
+                inSecond++
+            }else{
+                inThird++
+            }
+        }
+        if inFirst==strLen{
+            arr = append(arr, v)
+        }else if inSecond==strLen{
+            arr = append(arr, v)
+        }else if inThird==strLen{
+            arr = append(arr, v)
+        }
+    }
+    return arr
+}
