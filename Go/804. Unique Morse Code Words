@@ -1,0 +1,18 @@
+func uniqueMorseRepresentations(words []string) int {
+    morse := []string{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."}
+    m := make(map[string]int)
+    for _, word := range words{
+        codeWord := ""
+        for _, c := range word{
+            index := byte(c) - byte('a')
+            codeWord += morse[index]
+        }
+
+        _, ok := m[codeWord]
+        if !ok{
+            m[codeWord] = 1
+        }
+    }
+
+    return len(m)
+}
