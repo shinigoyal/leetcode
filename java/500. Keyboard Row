@@ -1,0 +1,32 @@
+class Solution {
+    public String[] findWords(String[] words) {
+        String first = "qwertyuiop";
+        String second = "asdfghjkl";
+        String third = "zxcvbnm";
+        List<String> list = new ArrayList<>();
+        for(int i=0; i<words.length; i++){
+            char[] cArr = words[i].toLowerCase().toCharArray();
+            String c = String.valueOf(cArr[0]);
+            boolean bool = false;
+            if(first.contains(c)){
+                bool = canBeTyped(first, cArr);
+            }else if(second.contains(c)){
+                bool = canBeTyped(second, cArr);
+            }else{
+                bool = canBeTyped(third, cArr);
+            }
+            if(bool){
+                list.add(words[i]);
+            }
+        }
+        return list.toArray(new String[0]);
+    }
+    public boolean canBeTyped(String input, char[] arr){
+        for(char c: arr){
+            if(!input.contains(String.valueOf(c))){
+                return false;
+            }
+        }
+        return true;
+    }
+}
