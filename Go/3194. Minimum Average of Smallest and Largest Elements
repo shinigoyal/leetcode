@@ -1,0 +1,14 @@
+import "slices"
+func minimumAverage(nums []int) float64 {
+    slices.Sort(nums)
+    left :=0
+    right := len(nums)-1
+    avg := math.MaxFloat64
+    for left<right{
+        currAvg := float64(nums[left]+nums[right])/2
+        avg = min(currAvg, avg)
+        left++
+        right--
+    }
+    return avg
+}
