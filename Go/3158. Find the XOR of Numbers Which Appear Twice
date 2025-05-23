@@ -1,0 +1,11 @@
+import "slices"
+func duplicateNumbersXOR(nums []int) int {
+    slices.Sort(nums)
+    xor := 0
+    for i, v := range nums{
+        if i+1 < len(nums) && v==nums[i+1]{
+            xor^=v
+        }
+    }
+    return xor
+}
