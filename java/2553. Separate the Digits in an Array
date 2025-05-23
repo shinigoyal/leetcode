@@ -1,0 +1,17 @@
+class Solution {
+    public int[] separateDigits(int[] nums) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<nums.length; i++){
+            sb.append(nums[i]);
+        }
+        int[] arr = new int[sb.length()];
+        int index = 0;
+        char[] charArr = sb.toString().toCharArray();
+        for(char ch : charArr){
+            arr[index] = ch-'0';
+            index++;
+        }
+
+        return arr;
+    }
+}
