@@ -1,0 +1,23 @@
+import (
+	"strconv"
+)
+
+func findTheArrayConcVal(nums []int) int64 {
+    if len(nums)==1{
+        return int64(nums[0])
+    }
+	concate := int64(0)
+	left := 0
+	right := len(nums) - 1
+	for left < right {
+		str, r := strconv.Itoa(nums[left]), strconv.Itoa(nums[right])
+		n, _ := strconv.Atoi(str+r)
+		concate += int64(n)
+		left++
+		right--
+		if left == right {
+			concate += int64(nums[left])
+		}
+	}
+	return concate
+}
