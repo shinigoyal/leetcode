@@ -1,0 +1,22 @@
+class Solution {
+    public long findTheArrayConcVal(int[] nums) {
+        long concate = 0;
+        int len = nums.length;
+        if(len==1){
+            return nums[0];
+        }
+        int left = 0;
+        int right = len-1;
+
+        while(left<right){
+            String s = String.valueOf(nums[left]).concat(String.valueOf(nums[right]));
+            concate += Long.valueOf(s);
+            left++;
+            right--;
+        }
+        if(left==right){
+            concate+=nums[left];
+        }
+        return concate;
+    }
+}
