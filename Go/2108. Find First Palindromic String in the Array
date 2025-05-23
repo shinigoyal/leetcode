@@ -1,0 +1,22 @@
+func firstPalindrome(words []string) string {
+    str := ""
+    for _, v := range words{
+        if isPalindrome(v){
+            return v
+        }
+    }
+    return str
+}
+
+func isPalindrome(str string) bool{
+    left := 0
+    right := len(str)-1
+    for left<right{
+        if str[left]!=str[right]{
+            return false
+        }
+        left++;
+        right--;
+    }
+    return true
+}
