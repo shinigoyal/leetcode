@@ -1,0 +1,23 @@
+class Solution {
+    public boolean canAliceWin(int[] nums) {
+        int oddSum=0;
+        int evenSum=0;
+        for(int i=0; i<nums.length; i++){
+            if(digitCount(nums[i])%2==0){
+                evenSum+=nums[i];
+            }else{
+                oddSum+=nums[i];
+            }
+        }
+        
+        return evenSum!=oddSum;
+    }
+    public int digitCount(int num){
+        int count=0;
+        while(num!=0){
+            num /= 10;
+            count++;
+        }
+        return count;
+    }
+}
