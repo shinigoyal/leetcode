@@ -1,0 +1,18 @@
+import "strconv"
+func canAliceWin(nums []int) bool {
+    odd := 0
+    even := 0
+    for _,num := range nums{
+        count := countDigits(num)
+        if count%2==0{
+            even+=num
+        }else{
+            odd+=num
+        }
+    }
+    return odd!=even
+}
+
+func countDigits(num int) int{
+    return len(strconv.Itoa(num))
+}
