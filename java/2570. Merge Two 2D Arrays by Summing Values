@@ -1,0 +1,43 @@
+class Solution {
+    public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        List<int[]> list = new ArrayList<>();
+        int i = 0;
+        int j= 0;
+        while(i<len1 && j<len2){
+            int n1 = nums1[i][0];
+            int n2 = nums2[j][0];
+            
+            if(n1==n2){
+                int[] arr = new int[2];
+                int sum = nums1[i][1] + nums2[j][1];
+                arr[0] = n1;
+                arr[1] = sum;
+                list.add(arr);
+                i++;
+                j++;
+            }else if(n1 < n2){
+                list.add(nums1[i]);
+                i++;
+            }else{
+                list.add(nums2[j]);
+                j++;
+            }
+            
+        }
+
+        while(i < len1){
+            list.add(nums1[i]);
+            i++;
+        }
+        while(j < len2){
+            list.add(nums2[j]);
+            j++;
+        }
+        
+        return list.toArray(new int[list.size()][]);
+        
+       
+    }
+}
