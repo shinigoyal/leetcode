@@ -1,0 +1,29 @@
+class Solution {
+    public int getHighestDigit(int num){
+        int largestDigit = 0;
+        while (num >0 ){
+            int n = num%10;
+            if(n>largestDigit){
+                largestDigit = n;
+            }
+            num /= 10;
+        }
+        return largestDigit;
+
+    }
+    public int maxSum(int[] nums) {
+        int sum = -1;
+        int[] arr = new int[10];
+        for(int num : nums){
+            int largest = getHighestDigit(num);
+            if(arr[largest]>0){
+                sum = Math.max(sum, arr[largest]+num);
+            }
+            arr[largest] = Math.max(arr[largest], num);
+
+        }
+
+        return sum;
+
+    }
+}
