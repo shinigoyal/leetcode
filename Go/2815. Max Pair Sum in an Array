@@ -1,0 +1,24 @@
+func maxSum(nums []int) int {
+    arr := make([]int, 10)
+    sum := -1
+    for _, num := range nums{
+        n := getLargestDigit(num)
+        if arr[n]>0{
+            sum = max(sum, arr[n]+num)
+        }
+        arr[n] = max(arr[n], num)
+    }
+    return sum
+}
+
+func getLargestDigit(num int) int{
+    max := 0
+    for num>0{
+        n := num%10
+        if max<n{
+            max = n
+        }
+        num /= 10
+    }
+    return max
+}
