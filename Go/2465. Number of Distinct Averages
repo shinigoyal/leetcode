@@ -1,0 +1,22 @@
+import ("slices")
+func distinctAverages(nums []int) int {
+    slices.Sort(nums)
+    avg := make(map[float64]int)
+    left := 0
+    right := len(nums)-1
+    for left < right{
+        a := average(nums[left], nums[right])
+        _, ok := avg[a]
+        if !ok{
+            avg[a] = 1
+        }
+        left++
+        right--
+    }
+    return len(avg)
+}
+
+func average(a, b int) float64 {
+	sum := a + b
+	return float64(sum) / 2.0
+}
